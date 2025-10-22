@@ -124,17 +124,17 @@ else:
     file = Workbook()
     sheet = file.active
     sheet['A1'] = '№'
-    sheet['B1'] = 'Имя'
-    sheet['C1'] = 'Фамилия'
-    sheet['D1'] = 'Возраст'
-    sheet['E1'] = 'Пол'
-    sheet['F1'] = 'Курс'
-    sheet['G1'] = 'Факультет'
-    sheet['H1'] = 'Имя отца'
-    sheet['I1'] = 'Имя матери'
-    sheet['J1'] = 'Место работы отца'
-    sheet['K1'] = 'Место работы матери'
-    # sheet['L1'] = 
+    sheet['B1'] = 'Дата регистрации'
+    sheet['C1'] = 'Имя'
+    sheet['D1'] = 'Фамилия'
+    sheet['E1'] = 'Возраст'
+    sheet['F1'] = 'Пол'
+    sheet['G1'] = 'Курс'
+    sheet['H1'] = 'Факультет'
+    sheet['I1'] = 'Имя отца'
+    sheet['J1'] = 'Имя матери'
+    sheet['K1'] = 'Место работы отца'
+    sheet['L1'] = 'Место работы матери'
     file.save('Student_data.xlsx')
 
 # Top Frame
