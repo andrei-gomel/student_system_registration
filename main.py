@@ -95,6 +95,13 @@ def Save():
         sheet.cell(column=11, row=sheet.max_row, value=M_n1)
         sheet.cell(column=12, row=sheet.max_row, value=M_j1)
         file.save(r'Student_data.xlsx')
+        try:
+            img.save("students_images/" + str(R1) + ".jpg")
+        except:
+            messagebox.showinfo('info', 'Изображение пользователя не доступно!')
+        messagebox.showinfo('info', 'Данные студента успешно сохранены!')
+        Clear()
+        regisration_no()
 
 
 def showfile():
