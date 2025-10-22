@@ -36,7 +36,7 @@ def regisration_no():
     row = sheet.max_row
     max_row_value = sheet.cell(row=row, column=1).value
     try:
-        Registration.set(max_row_value+1)
+        Registration.set(int(max_row_value) + 1)
     except:
         Registration.set('1')
 
@@ -156,7 +156,7 @@ Update_button.place(x=110, y=64)
 Label(root, text="Регистрационный №:", font="arial 13", fg=framebg, bg=background).place(x=30, y=150)
 Label(root, text="Дата:", font="arial 13", fg=framebg, bg=background).place(x=500, y=150)
 
-Registration = StringVar()
+Registration = IntVar()
 Date = StringVar()
 
 reg_entry = Entry(root, textvariable=Registration, width=15, font="arial 12")
