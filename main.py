@@ -169,6 +169,47 @@ def search():
     img_lbl.image = photo2
 
 
+def Update():
+    R1 = Registration.get()
+    D1 = Date.get()
+    Fst_n1 = First_name.get()
+    L_n1 = Last_name.get()
+    A1 = age.get()
+    gender_select()
+    G1 = gender    
+    K1 = kyrs.get()
+    S1 = skill.get()
+    F_n1 = Father_name.get()
+    F_j1 = Father_job.get()
+    M_n1 = Mather_name.get()
+    M_j1 = Mather_job.get()
+    file = openpyxl.load_workbook('Student_data.xlsx')
+    sheet = file.active
+    for row in sheet.rows:
+        if row[0].value == R1:
+            name = row[0]
+            reg_number = str(name)[15:-1]
+    sheet.cell(row=int(reg_number), column=1, value=R1)
+    sheet.cell(row=int(reg_number), column=2, value=D1)
+    sheet.cell(row=int(reg_number), column=3, value=Fst_n1)
+    sheet.cell(row=int(reg_number), column=4, value=L_n1)
+    sheet.cell(row=int(reg_number), column=5, value=A1)
+    sheet.cell(row=int(reg_number), column=6, value=G1)
+    sheet.cell(row=int(reg_number), column=7, value=K1)
+    sheet.cell(row=int(reg_number), column=8, value=S1)
+    sheet.cell(row=int(reg_number), column=9, value=F_n1)
+    sheet.cell(row=int(reg_number), column=10, value=F_j1)
+    sheet.cell(row=int(reg_number), column=11, value=M_n1)
+    sheet.cell(row=int(reg_number), column=12, value=M_j1)
+    file.save(r'Student_data.xlsx')
+    try:
+        img.save("students_images/" + str(R1) + ".jpg")
+    except:
+        pass
+    messagebox.showinfo('info', 'Данные студента успешно обновлены!')
+    Clear()
+
+
 root = Tk()
 root.title("Список студентов")
 root.geometry("1250x700+230+100")
@@ -206,7 +247,7 @@ Srch = Button(root, text="Найти", compound=LEFT, image=image_icon_srch, wid
 Srch.place(x=1060, y=66)
 
 image_icon_load = PhotoImage(file="images/Layer 4.png")
-Update_button = Button(root, image=image_icon_load, bg="#c36464")
+Update_button = Button(root, image=image_icon_load, bg="#c36464", command=Update)
 Update_button.place(x=110, y=64)
 
 # Registration and Date
