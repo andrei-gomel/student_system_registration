@@ -95,19 +95,6 @@ def Save():
         sheet.cell(column=11, row=sheet.max_row, value=M_n1)
         sheet.cell(column=12, row=sheet.max_row, value=M_j1)
         file.save(r'Student_data.xlsx')
-        
-    # print(R1)
-    # print(D1)
-    # print(Fst_n1)
-    # print(L_n1)
-    # print(A1)
-    # print(G1)
-    # print(K1)
-    # print(S1)
-    # print(F_n1)
-    # print(F_j1)
-    # print(M_n1)
-    # print(M_j1)
 
 
 def showfile():
