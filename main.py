@@ -119,6 +119,56 @@ def showfile():
     img_lbl.image = photo2
     
 
+def search():
+    text = Search.get()
+    Clear()
+    save_button.config(state='disabled')
+    file = openpyxl.load_workbook("Student_data.xlsx")
+    sheet = file.active
+    for row in sheet.rows:
+        if row[0].value == int(text):
+            name = row[0]
+            # reg_no_position = str(name)[14:-1]
+            reg_number = str(name)[15:-1]
+    try:
+        # print(str(name))
+        pass
+    except:
+        messagebox.showerror("Invalid", "Этот номер не найден!")
+    x1 = sheet.cell(row=int(reg_number), column=1).value
+    x2 = sheet.cell(row=int(reg_number), column=2).value
+    x3 = sheet.cell(row=int(reg_number), column=3).value
+    x4 = sheet.cell(row=int(reg_number), column=4).value
+    x5 = sheet.cell(row=int(reg_number), column=5).value
+    x6 = sheet.cell(row=int(reg_number), column=6).value
+    x7 = sheet.cell(row=int(reg_number), column=7).value
+    x8 = sheet.cell(row=int(reg_number), column=8).value
+    x9 = sheet.cell(row=int(reg_number), column=9).value
+    x10 = sheet.cell(row=int(reg_number), column=10).value
+    x11 = sheet.cell(row=int(reg_number), column=11).value
+    x12 = sheet.cell(row=int(reg_number), column=12).value
+    Registration.set(x1)
+    Date.set(x2)
+    First_name.set(x3)
+    Last_name.set(x4)
+    age.set(x5)
+    if x6 == 'Мужской':
+        R1.select()
+    else:
+        R2.select()
+    kyrs.set(x7)
+    skill.set(x8)
+    Father_name.set(x9)
+    Father_job.set(x10)
+    Mather_name.set(x11)
+    Mather_job.set(x12)
+    img = (Image.open("students_images/" + str(x1) +".jpg"))
+    resized_image = img.resize((190,190))
+    photo2 = ImageTk.PhotoImage(resized_image)
+    img_lbl.config(image=photo2)
+    img_lbl.image = photo2
+
+
 root = Tk()
 root.title("Список студентов")
 root.geometry("1250x700+230+100")
@@ -152,7 +202,7 @@ Label(root, text="Список студентов", width=10, height=2, bg="#c36
 Search = StringVar()
 Entry(root, textvariable=Search, width=15, bd=2, font="arial 20").place(x=820, y=70)
 image_icon_srch = PhotoImage(file="images/search.png")
-Srch = Button(root, text="Найти", compound=LEFT, image=image_icon_srch, width=123, bg="#68ddfa", font="arial 13 bold")
+Srch = Button(root, text="Найти", compound=LEFT, image=image_icon_srch, width=123, bg="#68ddfa", font="arial 13 bold", command=search)
 Srch.place(x=1060, y=66)
 
 image_icon_load = PhotoImage(file="images/Layer 4.png")
