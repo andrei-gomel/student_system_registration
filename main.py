@@ -1,4 +1,3 @@
-from operator import ge
 from tkinter import *
 from datetime import date
 from tkinter import filedialog
